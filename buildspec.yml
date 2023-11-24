@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: openjdk11  # Specify the Java version you want to use
+  pre_build:
+    commands:
+      - echo "Installing Maven..."
+      - apt-get update -y
+      - apt-get install -y maven
+  build:
+    commands:
+      - echo "Building the Java application..."
+      - mvn clean package  # Run Maven commands to build the application
+  post_build:
+    commands:
+      - echo "Build completed."
