@@ -15,8 +15,6 @@ phases:
  post_build:
    commands:
      - echo "Build completed."
-     - echo "Running the Java application..."
-     - java -jar target/spring-boot-web.jar &
 artifacts:
  files:
    - '**/*' 
