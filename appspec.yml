@@ -1,14 +1,28 @@
 version: 0.0
 os: linux
-files:
- - source: /spring-boot-web.jar
-   destination: /tmp
+# We need to copy our war file over to the tomcat applications directory, which is /usr/share/tomcat/webapps
+files: 
+  - source: /target/spring-boot-web.Jar
+    destination: /usr/share/tomcat/webapps
+    overwrite: true
+
+
+permissions: 
+  - object: / 
+    pattern: "**" 
+    mode: 755
+    owner: tomcat 
+    group: tomcat
 hooks:
- ApplicationStop:
-   - location: scripts/stop_server.sh
-     timeout: 30
-     runas: root
- ApplicationStart:
-   - location: scripts/start_server.sh
-     timeout: 30
-     runas: root
+# Before the application is deployed, Tomcat needs to be stopped and 
+# the existing applications cleaned up
+  ApplicationStop:
+    - location: scripts/server_stop_clean.sh
+      timeout: 60
+      runas: root
+
+# Now we can start up Tomcat once again
+  ApplicationStart:
+    - location: scripts/server_start.sh   
+      timeout: 60
+      runas: root
