@@ -12,7 +12,7 @@ phases:
   build:
     commands:
       - echo "Building the Java application..."
-      - mvn clean install
+      - mvn clean install package
   post_build:
     commands:
       - echo "Build completed."
