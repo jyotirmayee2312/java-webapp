@@ -1,22 +1,20 @@
 version: 0.2
-
 phases:
-  install:
-    runtime-versions:
-      java: corretto17
-  pre_build:
-    commands:
-      - echo "Installing Maven..."
-      - apt-get update -y
-      - apt-get install -y maven
-  build:
-    commands:
-      - echo "Building the Java application..."
-      - mvn clean install package
-  artifacts:
-      files:
-        - '**/*'
-  post_build:
-    commands:
-      - echo "Build completed."
- 
+ install:
+   runtime-versions:
+     java: corretto17
+ pre_build:
+   commands:
+     - echo "Installing Maven..."
+     - apt-get update -y
+     - apt-get install -y maven
+ build:
+   commands:
+     - echo "Building the Java application..."
+     - mvn clean install package
+ post_build:
+   commands:
+     - echo "Build completed."
+artifacts:
+ files:
+   - '**/*'
