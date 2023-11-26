@@ -3,7 +3,11 @@ os: linux
 files:
   - source: /
     destination: /opt/myapp/    # Change this destination path to your desired location
+
 hooks:
+  BeforeInstall:
+    - location: /remove_existing_file.sh
+      timeout: 300
   AfterInstall:
     - location: /unzip_and_run.sh
       timeout: 300
