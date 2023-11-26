@@ -1,28 +1,9 @@
 version: 0.0
 os: linux
-# We need to copy our war file over to the tomcat applications directory, which is /usr/share/tomcat/webapps
-files: 
+files:
   - source: /
-    destination: /
-    overwrite: true
-
-
-permissions: 
-  - object: / 
-    pattern: "**" 
-    mode: 755
-    owner: tomcat 
-    group: tomcat
+    destination: /opt/myapp/    # Change this destination path to your desired location
 hooks:
-# Before the application is deployed, Tomcat needs to be stopped and 
-# the existing applications cleaned up
-  ApplicationStop:
-    - location: scripts/server_stop_clean.sh
-      timeout: 60
-      runas: root
-
-# Now we can start up Tomcat once again
-  ApplicationStart:
-    - location: scripts/server_start.sh   
-      timeout: 60
-      runas: root
+  AfterInstall:
+    - location: scripts/unzip_and_run.sh
+      timeout: 300
