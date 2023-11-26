@@ -5,5 +5,5 @@ files:
     destination: /opt/myapp/    # Change this destination path to your desired location
 hooks:
   AfterInstall:
-    - location: scripts/unzip_and_run.sh
+    - location: /unzip_and_run.sh
       timeout: 300
