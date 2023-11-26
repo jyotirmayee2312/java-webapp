@@ -1,11 +1,12 @@
 #!/bin/bash
 
-# Remove the existing file if it exists
+# Define the target file
 TARGET_FILE="/target/spring-boot-web.jar.original"
 
+# Check if the file exists
 if [ -f "$TARGET_FILE" ]; then
-    echo "Removing existing file: $TARGET_FILE"
-    rm "$TARGET_FILE" || exit 1
+   echo "Removing existing file: $TARGET_FILE"
+   rm "$TARGET_FILE" || exit 1
 fi
 
 # Download artifact from S3
