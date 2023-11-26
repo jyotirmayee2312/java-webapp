@@ -3,7 +3,7 @@ version: 0.1
 phases:
   install:
     commands:
-    - echo installing maven...
+    - echo installing maven..
     - yum install -y maven
   build:
     commands:
