@@ -8,4 +8,4 @@ phases:
 artifacts:
   files:
     - appspec.yml  # Include the appspec.yml file in your build artifacts
-    - target/*.war  # Include the .war file for deployment
+    - /*.war  # Include the .war file for deployment
