@@ -9,11 +9,8 @@ COPY mvnw .
 COPY pom.xml .
 COPY src ./src
 
-# Make mvnw executable (for Unix-based systems)
-RUN chmod +x mvnw
-
 # Build the application using Maven and generate the java-app.war file
-RUN ./mvnw clean package
+RUN mvn clean package
 
 # Use a lightweight OpenJDK image as the base image for running the application
 FROM openjdk:11-jre-slim
