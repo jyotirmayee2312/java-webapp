@@ -1,3 +1,10 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - mvn clean package  # Build your application to generate the .war file
+
 artifacts:
   files:
     - appspec.yml  # Include the appspec.yml file in your build artifacts
