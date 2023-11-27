@@ -1,16 +1,4 @@
-version: 0.2
-
-phases:
-  install:
-    commands:
-      - echo installing Maven...
-      - yum install -y maven
-
-  build:
-    commands:
-      - echo Build started on `date`
-      - mvn clean test package
-
 artifacts:
   files:
-    - '**/*'
+    - appspec.yml  # Include the appspec.yml file in your build artifacts
+    - target/*.war  # Include the .war file for deployment
