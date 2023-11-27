@@ -6,8 +6,8 @@ files:
 
 hooks:
   BeforeInstall:
-    - location: /remove_existing_file.sh
+    - location: /download_artifact.sh
       timeout: 300
   AfterInstall:
-    - location: /unzip_and_run.sh
+    - location: /start_application.sh
       timeout: 300
