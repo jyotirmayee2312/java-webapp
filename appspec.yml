@@ -17,12 +17,12 @@ hooks:
 # Before the application is deployed, Tomcat needs to be stopped and 
 # the existing applications cleaned up
   ApplicationStop:
-    - location: scripts/server_stop_clean.sh
+    - location: /server_stop_clean.sh
       timeout: 60
       runas: root
 
 # Now we can start up Tomcat once again
   ApplicationStart:
-    - location: scripts/server_start.sh   
+    - location: /server_start.sh   
       timeout: 60
       runas: root
