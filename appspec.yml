@@ -4,7 +4,5 @@ files:
   - source: /target/hello-world-maven.war
     destination: /var/lib/tomcat9/webapps/
     overwrite: true
-    permissions:
-      - object: /var/lib/tomcat9/webapps/hello-world-maven.war
-        pattern: "755"
+    
 
