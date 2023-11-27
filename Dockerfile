@@ -1,13 +1,11 @@
-# Use a base image with Java installed
-FROM openjdk:11
+# Use the official Tomcat base image
+FROM tomcat:latest
 
-# Set the working directory inside the container
-WORKDIR /app
+# Copy the WAR file from the local filesystem into the webapps directory of Tomcat
+COPY target/hello-world-maven.war /usr/local/tomcat/webapps/
 
-# Copy the entire project directory into the container at /app
-COPY . /app
+# Expose the default Tomcat port
+EXPOSE 8080
 
-RUN mvn clean package
-
-# Command to run your application
-CMD ["java", "-jar", "target/java-app.jar"]
+# Start Tomcat using catalina.sh run command when the container starts
+CMD ["catalina.sh", "run"]
