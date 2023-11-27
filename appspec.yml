@@ -7,3 +7,4 @@ files:
     permissions:
       - object: /var/lib/tomcat9/webapps/hello-world-maven.war
         pattern: "755"
+
