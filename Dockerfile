@@ -6,7 +6,6 @@ WORKDIR /app
 
 # Copy the Maven project files to the container
 COPY mvnw .
-COPY mvnw.cmd .
 COPY pom.xml .
 COPY src ./src
 
