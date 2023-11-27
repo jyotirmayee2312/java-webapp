@@ -1,9 +1,7 @@
 #!/bin/bash
 
-# Remove existing .war file if it exists
-TARGET_FILE="/opt/myapp/myapp.war"
+# Download artifact from S3
+aws s3 cp s3://your-bucket-name/path/to/artifact.zip /opt/myapp/artifact.zip || exit 1
 
-if [ -f "$TARGET_FILE" ]; then
-    echo "Removing existing .war file: $TARGET_FILE"
-    rm -f "$TARGET_FILE" || exit 1
-fi
+# Unzip the artifact
+unzip -q /opt/myapp/artifact.zip -d /opt/myapp/extracted || exit 1
