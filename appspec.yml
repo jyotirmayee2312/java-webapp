@@ -11,3 +11,5 @@ hooks:
   AfterInstall:
     - location: /start_application.sh
       timeout: 300
+
+file_exists_behavior: OVERWRITE
