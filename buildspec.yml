@@ -1,7 +1,7 @@
 version: 0.2
 
 phases:
-  build:
+  build: 
     commands:
       - mvn clean package  # Build your application to generate the .war file
 
