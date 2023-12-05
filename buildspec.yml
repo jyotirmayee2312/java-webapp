@@ -13,8 +13,10 @@ phases:
       - docker build -t jyotimayeeparida .
 
       # Push Docker image to ECR
-      - docker tag jyotimayeeparida:latest public.ecr.aws/u3s1n7x0/jyotimayeeparida:latest
-      - docker push public.ecr.aws/u3s1n7x0/jyotimayeeparida:latest
+      # docker tag jyotimayeeparida:latest public.ecr.aws/u3s1n7x0/jyotimayeeparida:latest
+      - docker tag ecr_ecs:latest 373169706564.dkr.ecr.ap-south-1.amazonaws.com/ecr_ecs:latest
+      # docker push public.ecr.aws/u3s1n7x0/jyotimayeeparida:latest
+      - docker push 373169706564.dkr.ecr.ap-south-1.amazonaws.com/ecr_ecs:latest
 
 artifacts:
   files:
