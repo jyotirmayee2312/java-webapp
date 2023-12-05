@@ -6,18 +6,18 @@ phases:
       - mvn clean package  # Build your application to generate the .war file
 
       # Authenticate with ECR
-      # aws ecr-public get-login-password --region ap-south-1 | docker login --username AWS --password-stdin public.ecr.aws/u3s1n7x0
-      - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 373169706564.dkr.ecr.ap-south-1.amazonaws.com
+      - aws ecr-public get-login-password --region ap-south-1 | docker login --username AWS --password-stdin public.ecr.aws/u3s1n7x0
+      #aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 373169706564.dkr.ecr.ap-south-1.amazonaws.com
 
       # Build Docker image
       # docker build -t jyotimayeeparida .
       - docker build -t ecr_ecs .
 
       # Push Docker image to ECR
-      # docker tag jyotimayeeparida:latest public.ecr.aws/u3s1n7x0/jyotimayeeparida:latest
-      - docker tag ecr_ecs:latest 373169706564.dkr.ecr.ap-south-1.amazonaws.com/ecr_ecs:latest
-      # docker push public.ecr.aws/u3s1n7x0/jyotimayeeparida:latest
-      - docker push 373169706564.dkr.ecr.ap-south-1.amazonaws.com/ecr_ecs:latest
+      - docker tag ecr_ecs:latest public.ecr.aws/u3s1n7x0/ecr_ecs:latest
+      # docker tag ecr_ecs:latest 373169706564.dkr.ecr.ap-south-1.amazonaws.com/ecr_ecs:latest
+      - docker push public.ecr.aws/u3s1n7x0/ecr_ecs:latest
+      # docker push 373169706564.dkr.ecr.ap-south-1.amazonaws.com/ecr_ecs:latest
 
 artifacts:
   files:
