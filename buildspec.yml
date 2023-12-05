@@ -5,7 +5,7 @@ phases:
     commands:
       - mvn clean package  # Build your application to generate the .war file
 
-      # Authenticate with ECR
+      # Authenticate with ECR  
       #aws ecr-public get-login-password --region ap-south-1 | docker login --username AWS --password-stdin public.ecr.aws/u3s1n7x0
       # aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 373169706564.dkr.ecr.ap-south-1.amazonaws.com
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 437433616437.dkr.ecr.us-east-1.amazonaws.com
