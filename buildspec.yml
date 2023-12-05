@@ -10,7 +10,8 @@ phases:
       - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 373169706564.dkr.ecr.ap-south-1.amazonaws.com
 
       # Build Docker image
-      - docker build -t jyotimayeeparida .
+      # docker build -t jyotimayeeparida .
+      - docker build -t ecr_ecs .
 
       # Push Docker image to ECR
       # docker tag jyotimayeeparida:latest public.ecr.aws/u3s1n7x0/jyotimayeeparida:latest
