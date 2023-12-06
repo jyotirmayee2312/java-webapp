@@ -4,3 +4,7 @@ files:
   - source: /index.html
     destination: /var/www/html/
     overwrite: true
+hooks:
+  BeforeInstall:
+    - location: beforeInstall.sh
+      timeout: 100
